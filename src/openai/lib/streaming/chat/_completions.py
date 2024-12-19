@@ -432,6 +432,7 @@ class ChatCompletionStreamState(Generic[ResponseFormatT]):
 
             if (
                 choice_snapshot.message.content
+                and not choice_snapshot.message.content.isspace()
                 and not choice_snapshot.message.refusal
                 and is_given(self._rich_response_format)
             ):
